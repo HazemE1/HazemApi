@@ -11,3 +11,12 @@ HazemApli.iml
 pom.xml
 /.idea/vcs.xml
 src/test/
+/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+target/classes/
+target/generated-sources/
+target/hazemel-api-1.0-SNAPSHOT-shaded.jar
+target/maven-archiver/
+target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+target/maven-status/maven-compiler-plugin/testCompile/
+target/original-hazemel-api-1.0-SNAPSHOT.jar
+target/test-classes/
