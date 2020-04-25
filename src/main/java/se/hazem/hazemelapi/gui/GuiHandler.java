@@ -31,6 +31,8 @@ public class GuiHandler implements Listener {
         if (pressedItem instanceof ClickableGuiItem) {
             ClickableGuiItem c = ((ClickableGuiItem) pressedItem);
             c.run();
+            e.setCancelled(true);
+            p.updateInventory();
         }
         if (pressedItem instanceof StaticGuiItem) {
             e.setCancelled(true);
