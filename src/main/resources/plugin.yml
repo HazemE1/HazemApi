@@ -1,4 +1,4 @@
-name: Hazemel Api
+name: Hazemel-Api
 version: ${project.version}
 main: se.hazem.hazemelapi.HazemelApi
 api-version: 1.13

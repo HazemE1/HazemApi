@@ -17,6 +17,7 @@ public class GUI {
         slots = new ArrayList<>();
         inventory = Bukkit.createInventory(null, 9*rows, name);
         this.isStatic = isStatic;
+        GuiHandler.instance.getGuis().add(this);
     }
 
     public Slot getSlot(int slotNr){
@@ -26,6 +27,11 @@ public class GUI {
             }
         }
         return null;
+    }
+
+    public void addSlot(Slot slot){
+        this.slots.add(slot);
+        this.getInventory().setItem(slot.getSlotNumber(), slot.getGuiItem().getItemStack());
     }
 
     public boolean isStatic() {

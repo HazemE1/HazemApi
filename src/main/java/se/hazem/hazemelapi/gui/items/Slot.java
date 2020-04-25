@@ -2,11 +2,11 @@ package se.hazem.hazemelapi.gui.items;
 
 public class Slot {
     private int slotNumber;
-    private InventoryItem item;
+    private GuiItem guiItem;
 
-    public Slot(int slotNumber, InventoryItem item) {
+    public Slot(int slotNumber, GuiItem item) {
         this.slotNumber = slotNumber;
-        this.item = item;
+        this.guiItem = item;
     }
 
     public int getSlotNumber() {
@@ -17,11 +17,11 @@ public class Slot {
         this.slotNumber = slotNumber;
     }
 
-    public InventoryItem getItem() {
-        return item;
+    public GuiItem getGuiItem() {
+        return guiItem;
     }
 
-    public void setItem(InventoryItem item) {
-        this.item = item;
+    public void setGuiItem(StaticGuiItem guiItem) {
+        this.guiItem = guiItem;
     }
 }
