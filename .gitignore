@@ -20,3 +20,4 @@ target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
 target/maven-status/maven-compiler-plugin/testCompile/
 target/original-hazemel-api-1.0-SNAPSHOT.jar
 target/test-classes/
+!/src/main/java/se/hazem/hazemelapi/test/Event.java
