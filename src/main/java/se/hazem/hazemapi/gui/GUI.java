@@ -1,8 +1,8 @@
-package se.hazem.hazemelapi.gui;
+package se.hazem.hazemapi.gui;
 
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;
-import se.hazem.hazemelapi.gui.items.Slot;
+import se.hazem.hazemapi.gui.items.Slot;
 
 import java.util.ArrayList;
 import java.util.List;

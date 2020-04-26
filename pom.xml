@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>se.hazem</groupId>
-    <artifactId>hazemel-api</artifactId>
+    <artifactId>hazem-api</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Hazemel Api</name>
+    <name>HazemApi</name>
 
     <properties>
         <java.version>1.8</java.version>

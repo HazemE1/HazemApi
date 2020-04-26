@@ -1,4 +1,4 @@
-package se.hazem.hazemelapi.itemcreator;
+package se.hazem.hazemapi.itemcreator;
 
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;

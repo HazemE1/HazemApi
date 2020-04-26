@@ -1,4 +1,4 @@
-package se.hazem.hazemelapi.gui.items;
+package se.hazem.hazemapi.gui.items;
 
 public class Slot {
     private int slotNumber;

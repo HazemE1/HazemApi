@@ -1,4 +1,4 @@
-package se.hazem.hazemelapi.test;
+package se.hazem.hazemapi.test;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

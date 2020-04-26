@@ -1,11 +1,11 @@
-package se.hazem.hazemelapi.gui;
+package se.hazem.hazemapi.gui;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
-import se.hazem.hazemelapi.gui.items.*;
+import se.hazem.hazemapi.gui.items.*;
 
 import java.util.HashSet;
 import java.util.Set;
