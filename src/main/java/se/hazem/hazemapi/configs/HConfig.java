@@ -1,9 +1,11 @@
 package se.hazem.hazemapi.configs;
 
+import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import se.hazem.hazemapi.HazemApi;
 
 import java.io.File;
+import java.io.IOException;
 
 public class HConfig {
     private File file;
@@ -12,6 +14,22 @@ public class HConfig {
     public HConfig(String fileName, String path) {
         this.file = HazemApi.instance.loadFile(fileName, path);
         this.config = HazemApi.instance.loadConfig(this.file);
+    }
+
+    public void saveConfig(){
+        try {
+            config.save(this.file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void reloadConfig(){
+        try {
+            config.load(file);
+        } catch (IOException | InvalidConfigurationException e) {
+            e.printStackTrace();
+        }
     }
 
     public File getFile() {
