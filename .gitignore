@@ -21,3 +21,7 @@ target/maven-status/maven-compiler-plugin/testCompile/
 target/original-hazemel-api-1.0-SNAPSHOT.jar
 target/test-classes/
 !/src/main/java/se/hazem/hazemapi/test/Event.java
+/target/hazem-api-1.0-SNAPSHOT.jar
+/HazemApi.iml
+/.idea/dictionaries/HElKh.xml
+/target/original-hazem-api-1.0-SNAPSHOT.jar

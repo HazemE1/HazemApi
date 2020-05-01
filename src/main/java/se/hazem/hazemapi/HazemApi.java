@@ -27,23 +27,6 @@ public final class HazemApi extends JavaPlugin {
 
     }
 
-    public File loadFile(String name, String path) {
-        File f = new File(path, name);
-        if (!f.exists()) {
-            f.getParentFile().mkdirs();
-            saveResource(name, false);
-        }
-        return f;
-    }
 
-    public FileConfiguration loadConfig(File f) {
-        FileConfiguration config = new YamlConfiguration();
-        try {
-            config.load(f);
-        } catch (IOException | InvalidConfigurationException e) {
-            e.printStackTrace();
-        }
 
-        return config;
-    }
 }

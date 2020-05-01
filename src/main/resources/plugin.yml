@@ -1,5 +1,5 @@
 name: Hazem-Api
 version: ${project.version}
-main: se.hazem.hazemelapi.HazemApi
+main: se.hazem.hazemapi.HazemApi
 api-version: 1.13
 load: STARTUP
