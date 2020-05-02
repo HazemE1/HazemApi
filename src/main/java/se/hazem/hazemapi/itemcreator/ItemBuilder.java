@@ -25,18 +25,47 @@ public class ItemBuilder {
         enchantments.add(new CustomEnchantment(enchantment, level));
     }
 
-    public void addLore(String message) {
-        lore.add(message);
-    }
-
     public ItemStack buildItem() {
         ItemStack i = new ItemStack(type);
         ItemMeta im = i.getItemMeta();
         im.setLore(lore);
+        im.setDisplayName(this.name);
         i.setItemMeta(im);
         for (CustomEnchantment ce : enchantments) {
             i.addEnchantment(ce.enchantment, ce.level);
         }
         return i;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Material getType() {
+        return type;
+    }
+
+    public void setType(Material type) {
+        this.type = type;
+    }
+
+    public List<String> getLore() {
+        return lore;
+    }
+
+    public void setLore(List<String> lore) {
+        this.lore = lore;
+    }
+
+    public List<CustomEnchantment> getEnchantments() {
+        return enchantments;
+    }
+
+    public void setEnchantments(List<CustomEnchantment> enchantments) {
+        this.enchantments = enchantments;
     }
 }
