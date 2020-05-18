@@ -12,12 +12,14 @@ public class GUI {
     private List<Slot> slots;
     private Inventory inventory;
     private boolean isStatic;
+    private boolean closableGui;
 
-    public GUI(String name, int rows, boolean isStatic){
+    public GUI(String name, int rows, boolean isStatic, boolean closableGui){
         slots = new ArrayList<>();
         inventory = Bukkit.createInventory(null, 9*rows, name);
         this.isStatic = isStatic;
         GuiHandler.instance.getGuis().add(this);
+        this.closableGui = closableGui;
     }
 
     public Slot getSlot(int slotNr){
@@ -56,5 +58,13 @@ public class GUI {
 
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
+    }
+
+    public boolean isClosableGui() {
+        return closableGui;
+    }
+
+    public void setClosableGui(boolean closableGui) {
+        this.closableGui = closableGui;
     }
 }

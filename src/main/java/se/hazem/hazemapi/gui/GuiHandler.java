@@ -4,6 +4,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
 import se.hazem.hazemapi.gui.items.*;
 
@@ -20,8 +21,10 @@ public class GuiHandler implements Listener {
         guis = new HashSet<>();
     }
 
+
     @EventHandler
     public void inventoryPressEvent(InventoryClickEvent e) {
+        if(e.getClickedInventory() == null) return;
         Inventory pressedInventory = e.getClickedInventory();
         GUI gui = getGui(pressedInventory);
         if (gui == null) return;
@@ -45,11 +48,14 @@ public class GuiHandler implements Listener {
         }
     }
 
+    public void guiClosedEvent(InventoryCloseEvent e){
+        
+    }
+
     public GUI getGui(Inventory i) {
         for (GUI g : guis) {
 
             if (g.getInventory().hashCode() == i.hashCode()) {
-                System.out.println("FFound gui!");
                 return g;
             }
         }
