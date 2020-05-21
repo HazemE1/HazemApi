@@ -36,20 +36,23 @@ public class GuiHandler implements Listener {
             c.run();
             e.setCancelled(true);
             p.updateInventory();
+            System.out.println("TEST123");
+
         }
         if (pressedItem instanceof StaticGuiItem) {
             e.setCancelled(true);
             p.updateInventory();
         }
 
-        if (gui.isStatic() && !(pressedItem instanceof MovableGuiItem)) {
-            e.setCancelled(true);
-            p.updateInventory();
-        }
+
     }
 
     public void guiClosedEvent(InventoryCloseEvent e){
-        
+        Inventory pressedInventory = e.getInventory();
+        GUI gui = getGui(pressedInventory);
+        if (gui == null) return;
+
+        if(!gui.isClosableGui()) e.getPlayer().openInventory(gui.getInventory());
     }
 
     public GUI getGui(Inventory i) {

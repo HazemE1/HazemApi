@@ -14,24 +14,27 @@ public class GUI {
     private boolean isStatic;
     private boolean closableGui;
 
-    public GUI(String name, int rows, boolean isStatic, boolean closableGui){
+    public GUI(String name, int rows, boolean isStatic, boolean closableGui) {
         slots = new ArrayList<>();
-        inventory = Bukkit.createInventory(null, 9*rows, name);
+        inventory = Bukkit.createInventory(null, 9 * rows, name);
         this.isStatic = isStatic;
         GuiHandler.instance.getGuis().add(this);
         this.closableGui = closableGui;
     }
 
-    public Slot getSlot(int slotNr){
-        for (Slot s : this.getSlots()){
-            if(s.getSlotNumber()  == slotNr){
+    public Slot getSlot(int slotNr) {
+        for (Slot s : this.getSlots()) {
+            if (s.getSlotNumber() == slotNr) {
                 return s;
             }
         }
         return null;
     }
 
-    public void addSlot(Slot slot){
+    public void addSlot(Slot slot) {
+        if (getSlot(slot.getSlotNumber()) != null)
+            this.slots.remove(getSlot(slot.getSlotNumber()));
+
         this.slots.add(slot);
         this.getInventory().setItem(slot.getSlotNumber(), slot.getGuiItem().getItemStack());
     }
