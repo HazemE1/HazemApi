@@ -6,6 +6,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.scheduler.BukkitRunnable;
+import se.hazem.hazemapi.HazemApi;
 import se.hazem.hazemapi.gui.items.*;
 
 import java.util.HashSet;
@@ -24,7 +26,7 @@ public class GuiHandler implements Listener {
 
     @EventHandler
     public void inventoryPressEvent(InventoryClickEvent e) {
-        if(e.getClickedInventory() == null) return;
+        if (e.getClickedInventory() == null) return;
         Inventory pressedInventory = e.getClickedInventory();
         GUI gui = getGui(pressedInventory);
         if (gui == null) return;
@@ -36,7 +38,6 @@ public class GuiHandler implements Listener {
             c.run();
             e.setCancelled(true);
             p.updateInventory();
-            System.out.println("TEST123");
 
         }
         if (pressedItem instanceof StaticGuiItem) {
@@ -47,12 +48,20 @@ public class GuiHandler implements Listener {
 
     }
 
-    public void guiClosedEvent(InventoryCloseEvent e){
+    @EventHandler
+    public void guiClosedEvent(InventoryCloseEvent e) {
         Inventory pressedInventory = e.getInventory();
         GUI gui = getGui(pressedInventory);
         if (gui == null) return;
 
-        if(!gui.isClosableGui()) e.getPlayer().openInventory(gui.getInventory());
+        if (!gui.isClosableGui())
+            new BukkitRunnable() {
+                @Override
+                public void run() {
+                    e.getPlayer().openInventory(gui.getInventory());
+                    this.cancel();
+                }
+            }.runTaskTimer(HazemApi.instance, 0, 0);
     }
 
     public GUI getGui(Inventory i) {
