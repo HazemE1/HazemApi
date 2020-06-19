@@ -1,10 +1,12 @@
 package se.hazem.hazemapi.gui;
 
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import se.hazem.hazemapi.gui.items.Slot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class GUI {
@@ -13,7 +15,6 @@ public class GUI {
     private Inventory inventory;
     private boolean isStatic;
     private boolean closableGui;
-
     public GUI(String name, int rows, boolean isStatic, boolean closableGui) {
         slots = new ArrayList<>();
         inventory = Bukkit.createInventory(null, 9 * rows, name);
@@ -69,5 +70,9 @@ public class GUI {
 
     public void setClosableGui(boolean closableGui) {
         this.closableGui = closableGui;
+    }
+    public void closeGUI(Player p){
+        this.setClosableGui(false);
+        p.closeInventory();
     }
 }
