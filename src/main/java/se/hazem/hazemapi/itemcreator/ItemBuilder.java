@@ -32,7 +32,7 @@ public class ItemBuilder {
         im.setDisplayName(this.name);
         i.setItemMeta(im);
         for (CustomEnchantment ce : enchantments) {
-            i.addEnchantment(ce.enchantment, ce.level);
+            i.addUnsafeEnchantment(ce.enchantment, ce.level);
         }
         return i;
     }

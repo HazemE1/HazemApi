@@ -1,4 +1,4 @@
-package se.hazem.hazemapi.usefull_functions;
+package se.hazem.hazemapi.util;
 
 public class Pair<T1, T2> {
     private T1 value1;
