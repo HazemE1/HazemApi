@@ -8,7 +8,10 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.scheduler.BukkitRunnable;
 import se.hazem.hazemapi.HazemApi;
-import se.hazem.hazemapi.gui.items.*;
+import se.hazem.hazemapi.gui.items.ClickableGuiItem;
+import se.hazem.hazemapi.gui.items.GuiItem;
+import se.hazem.hazemapi.gui.items.Slot;
+import se.hazem.hazemapi.gui.items.StaticGuiItem;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -35,7 +38,8 @@ public class GuiHandler implements Listener {
         Player p = (Player) e.getWhoClicked();
         if (pressedItem instanceof ClickableGuiItem) {
             ClickableGuiItem c = ((ClickableGuiItem) pressedItem);
-            c.run();
+            c.run(e.getClick());
+
             e.setCancelled(true);
             p.updateInventory();
 
