@@ -12,11 +12,11 @@ public class HConfig {
     private File file;
     private FileConfiguration config;
 
-    public HConfig(String configName) {
-        this.file = new File(HazemApi.instance.getDataFolder(), configName);
+    public HConfig(File file) {
+        this.file = file;
         if (!file.exists()) {
             file.getParentFile().mkdirs();
-            HazemApi.instance.saveResource(configName, false);
+            HazemApi.instance.saveResource(file.getName(), false);
         }
         this.config = new YamlConfiguration();
         loadConfig();
