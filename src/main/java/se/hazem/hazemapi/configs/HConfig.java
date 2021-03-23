@@ -3,6 +3,7 @@ package se.hazem.hazemapi.configs;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import se.hazem.hazemapi.HazemApi;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,13 +12,17 @@ public class HConfig {
     private File file;
     private FileConfiguration config;
 
-    public HConfig(File file) {
-        this.file = file;
+    public HConfig(String configName) {
+        this.file = new File(HazemApi.instance.getDataFolder(), configName);
+        if (!file.exists()) {
+            file.getParentFile().mkdirs();
+            HazemApi.instance.saveResource(configName, false);
+        }
         this.config = new YamlConfiguration();
         loadConfig();
     }
 
-    public void saveConfig(){
+    public void saveConfig() {
         try {
             config.save(this.file);
         } catch (IOException e) {
@@ -25,7 +30,7 @@ public class HConfig {
         }
     }
 
-    public void loadConfig(){
+    public void loadConfig() {
         try {
             config.load(file);
         } catch (IOException | InvalidConfigurationException e) {
