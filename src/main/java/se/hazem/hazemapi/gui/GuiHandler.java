@@ -38,7 +38,7 @@ public class GuiHandler implements Listener {
         Player p = (Player) e.getWhoClicked();
         if (pressedItem instanceof ClickableGuiItem) {
             ClickableGuiItem c = ((ClickableGuiItem) pressedItem);
-            c.run(e.getClick());
+            c.run(e);
 
             e.setCancelled(true);
             p.updateInventory();
